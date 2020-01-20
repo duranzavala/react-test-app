@@ -1,4 +1,4 @@
-version: 0.1
+version: 1.0
 backend:
   phases:
     build:
@@ -12,6 +12,7 @@ frontend:
         - npm ci
     build:
       commands:
+        - npm install
         - npm run build
   artifacts:
     baseDirectory: build
