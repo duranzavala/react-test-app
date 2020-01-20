@@ -1,6 +1,6 @@
 {
     "identityPoolName": "testapp250617d1_identitypool_250617d1",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "testap250617d1",
     "userPoolName": "testapp250617d1_userpool_250617d1",
     "autoVerifiedAttributes": [
