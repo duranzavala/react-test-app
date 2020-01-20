@@ -7,7 +7,6 @@ install:
   - npm install
 
 script:
-  - amplifyPush --simple
   - npm test
   - npm run build
 
