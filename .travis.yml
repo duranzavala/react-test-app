@@ -6,6 +6,9 @@ cache: npm
 install:
   - npm install
 
+before_script:
+  - amplify init
+
 script:
   - npm test
   - npm run build
