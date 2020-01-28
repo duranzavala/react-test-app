@@ -5,6 +5,7 @@ cache: npm
 
 install:
   - npm install
+  - amplifyPush --simple
 
 script:
   - npm test
