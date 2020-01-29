@@ -13,7 +13,7 @@ script:
 - npm test
 - npm run build
 deploy:
-  provider: pages
+  provider: s3
   skip_cleanup: true
   github-token: "$GITHUB_TOKEN"
   local_dir: build
@@ -22,6 +22,7 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: $AWS_SECRET_KEY
+  bucket: testapp221307-dev
   region: us-west-2
 env:
   global:
