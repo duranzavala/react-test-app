@@ -3,9 +3,11 @@ node_js:
   - 11.6.0
 cache: npm
 
+before_install:
+  - amplify pull --appId d2fuhdsnl72e9r --envName dev
+
 install:
   - npm install
-  - amplifyPush --simple
 
 script:
   - npm test
