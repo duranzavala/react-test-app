@@ -6,7 +6,7 @@ cache: npm
 install:
   - npm install
   - npm install -g @aws-amplify/cli
-  - amplifyPush --simple
+  - amplify pull --appId d2fuhdsnl72e9r --envName dev
 
 script:
   - npm test
