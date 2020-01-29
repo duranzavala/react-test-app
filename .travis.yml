@@ -8,7 +8,7 @@ cache: npm
 install:
 - npm install
 - npm install -g @aws-amplify/cli
-- amplify pullß
+- amplify pull
 script:
 - npm test
 - npm run build
