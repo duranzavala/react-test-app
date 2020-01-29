@@ -3,7 +3,7 @@ node_js:
 - 11.6.0
 cache: npm
 before_install:
-  - chmod +x build.sh
+  - chmod +x ecr_credentials.sh
   - ./ecr_credentials.sh
 install:
 - npm install
