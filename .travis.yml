@@ -2,9 +2,9 @@ language: node.js
 node_js:
 - 11.6.0
 cache: npm
-#before_install:
-#  - chmod +x ecr_credentials.sh
-#  - ./ecr_credentials.sh
+before_install:
+  - chmod +x ecr_credentials.sh
+  - ./ecr_credentials.sh
 install:
 - npm install
 - npm install -g @aws-amplify/cli
