@@ -15,12 +15,10 @@ script:
 - npm run build
 deploy:
   provider: s3
-  access_key_id: AKIA44BEK5ZG2MRM7DXO
-  secret_access_key:
-    secure: NrVdSZfVHIxrsQPK6lXn92HeZmf8kXigLojcJI5Dq7nPTz+09CZWK66ewL9kYS3lFItoZodnJ+GhOJI70VKPypHBOVK3kKlgHfpi/ondbo8NORBNC0D/MiUz7IpSNmoVRf3iJk6pt/ows7d/XskicQX9hcu6GMP5uyF8JRaU/PiGt0qVXHRGvxY83wmLL6yXKuIBm+b+I5QLS3uWD/51lJy+IlHz9sKv46dJ/cYOIeruVHGgZpEk33GdWngp3EjL4y/bYMdXrj83wREpwlFqp2ALCbfXMaxLPvaDlcDjKNCDcF3U4tXm8skccdKkF06mXvvRcbpTrRc2o3WPypX7uxHwdBFFDorrYaDmfZZkMqspICP0/XQrxZNzf5jOHLWeR3bxNV84QYUkaW0RJvyEWHiyQkDNltDeAcZ3LUmJ2S5A5RhHHeVXRfLMwTaomgwJApNAxQjx5qs5puMrM/MEFF+vpjU8FQMBN+ZPsy3TOOd34lS/uDF1KX1GsHTrAIq7qP1pCyQlQuHtDatRUboGFOcBWWx1Jr0UdyYlRxkizGELcm8Au+X9reYtr3wdgEqqO2HCoLptEJd7Q/Tw1cwAOzJpqxFz2fZ+sKA2Gy6AegnwfFn2+PruxP7gaxzKEd2rRxzXeze9llx33m80ael35qCqCwJOVMxROqFViAbg9bk=
+  access_key_id: ${AWS_ACCESS_KEY_ID}
+  secret_access_key: ${AWS_SECRET_ACCESS_KEY}
   bucket: testapp221307-dev
   acl: public_read
   on:
     repo: duranzavala/react-test-app
     branch: feature/architecture
-  region: us-west-2
