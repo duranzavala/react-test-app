@@ -1,10 +1,11 @@
 language: node.js
+sudo: required
 node_js:
 - 11.6.0
 cache: npm
 before_install:
-  - chmod +x ecr_credentials.sh
-  - ./ecr_credentials.sh
+- chmod +x ecr_credentials.sh
+- "./ecr_credentials.sh"
 install:
 - npm install
 - npm install -g @aws-amplify/cli
@@ -14,17 +15,12 @@ script:
 - npm run build
 deploy:
   provider: s3
-  skip_cleanup: true
-  github-token: "$GITHUB_TOKEN"
-  local_dir: build
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
+  access_key_id: AKIA44BEK5ZG2MRM7DXO
   secret_access_key:
-    secure: $AWS_SECRET_KEY
+    secure: NrVdSZfVHIxrsQPK6lXn92HeZmf8kXigLojcJI5Dq7nPTz+09CZWK66ewL9kYS3lFItoZodnJ+GhOJI70VKPypHBOVK3kKlgHfpi/ondbo8NORBNC0D/MiUz7IpSNmoVRf3iJk6pt/ows7d/XskicQX9hcu6GMP5uyF8JRaU/PiGt0qVXHRGvxY83wmLL6yXKuIBm+b+I5QLS3uWD/51lJy+IlHz9sKv46dJ/cYOIeruVHGgZpEk33GdWngp3EjL4y/bYMdXrj83wREpwlFqp2ALCbfXMaxLPvaDlcDjKNCDcF3U4tXm8skccdKkF06mXvvRcbpTrRc2o3WPypX7uxHwdBFFDorrYaDmfZZkMqspICP0/XQrxZNzf5jOHLWeR3bxNV84QYUkaW0RJvyEWHiyQkDNltDeAcZ3LUmJ2S5A5RhHHeVXRfLMwTaomgwJApNAxQjx5qs5puMrM/MEFF+vpjU8FQMBN+ZPsy3TOOd34lS/uDF1KX1GsHTrAIq7qP1pCyQlQuHtDatRUboGFOcBWWx1Jr0UdyYlRxkizGELcm8Au+X9reYtr3wdgEqqO2HCoLptEJd7Q/Tw1cwAOzJpqxFz2fZ+sKA2Gy6AegnwfFn2+PruxP7gaxzKEd2rRxzXeze9llx33m80ael35qCqCwJOVMxROqFViAbg9bk=
   bucket: testapp221307-dev
+  acl: public_read
+  on:
+    repo: duranzavala/react-test-app
+    branch: feature/architecture
   region: us-west-2
-#env:
-#  global:
-#  - secure: S6+r06cX5xkB0x8ikQFQxL8YEHlw1biboTxIRzTkimqzy7ZWOOvQGq7aC1wFjXw5yvc/4+o3LrqBfv92UuDc3s5Y2965oBWshiG351eRbsWivO/onVPZEZsKFCe0zA6w9fllcvriu7bMlkGXd46FMCSTsiUXF+p+vkcUd/CR8PRYz+Kyx9n/tYk1bVxIxzfVHvsi9Kt8EPJccM/S/Z4Xakh8wwL/nkbs3T+plBLsJ4Ukn06P4EmwDxzs1nt+EHXc8Oj/0XmYK4ZezRlEGo7v+2OiXJ5QOHuivHwmeJXrqqC3zPk044m4I855yhZ+r+BDODPWmzEm+ZPGQu0n/RLOQJnYAwBCCIG5hkFEVg/GBIl2b0jJnSidOtuhBjzu86kOASmHAHk22P1Qt9MN3j9RJJGE6HXmzDZOwxFC9aypVxu6jxCniXGYW63yHr5IbF7SBDgrU3vVtThLZ8JX3JwPOIOTiqDmQCn+rva3RJcsWNRqCpxLB1H71EuLmVY98jeDzyvZ+74qsXluOS/HRoHJ7xP5znZNW3BAm0emU3HO0y8NVLsgnrQyHWMFZmrDlFR4x6OnQ9jkQpjIQjxB6UswCXHSHiaRbxlnksA6NHStWfB75taMEb34KgApbQW5Vt81XrlmWBvFnAeHzkvjryy3mYnbwlMmDx5zpQAJKFLa2eM=
-#  - secure: AjAVCvqu9npZGItnPcCk8K6v3SXmyiNu3HpNOjDbhy40GwMxzEDpVLa+/KiwJyKIxZRoymsoscOVFa+JbCgMqiaOAVd60sWUFtoIOD/WkoPlCYYhgK2XVXSWFKJCmAHvnb1992AMVjHuIMCjE1yVXNAdgNjM2KbYrbSB/HLTRC0GT38p3BBm74u+j4pnbt3kFfWEHx83PO3rPq8RxaGWWrN8G3OeTUYJsAMiuNLsRvLRm3UkpvOijd4YYuAbDYmhK/QoMFeDxNDSuRJGUxBH1oYKUBwhAmwIz7hvMj5/TlINcNvS5oE/e64Yes5cbaIdEcPkL6R+ZScNX2D1q/XBVLpHU75y0U2lQaYyi6bFEiV9I/ZCR8OgAIfZAzfdx5Z3lEDpO2xo6AmhoHiCs/TTgdQl1Tr7A+g3d80oHnejijnsIZg8vswf5C88+cT/eCWd9A6OD5slHEOUK2IcT3V03B3Wz4vLGKUW0Poe1Z5suIMsKAiLBr/zBep/zSN8oUvGeYW33KiY20jLQJb4U+kA4uWik0/W2hzS2d7j9qZx+wIE5J9lQpzIMvzWIMWE+W6JQIjdsgt5YR23rPVFluIWjYe7VewRJj2rubgc+5hKgNbzunCJIdgBDAExDWhBgoYhG7BN14rJ66t1KZ74W7NgtP0sIwQuMXJRAFxLVJLHsmo=
