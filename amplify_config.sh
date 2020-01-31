@@ -11,10 +11,10 @@ REACTCONFIG="{\
 AWSCLOUDFORMATIONCONFIG="{\
 \"configLevel\":\"project\",\
 \"useProfile\":true,\
-\"profileName\":$AWS_PROFILE,\
-\"accessKeyId\":${AWS_ACCESS_KEY_ID},\
-\"secretAccessKey\":${AWS_SECRET_ACCESS_KEY},\
-\"region\":${REGION}\
+\"profileName\":\"${AWS_PROFILE}\",\
+\"accessKeyId\":\"${AWS_ACCESS_KEY_ID}\",\
+\"secretAccessKey\":\"${AWS_SECRET_ACCESS_KEY}\",\
+\"region\":\"${REGION}\"\
 }"
 AMPLIFY="{\
 \"projectName\":\"test_app\",\
