@@ -1,19 +1,25 @@
 language: node.js
+sudo: required
 node_js:
-  - 11.6.0
+- 11.6.0
 cache: npm
-
+before_install:
+- chmod +x ecr_credentials.sh
+- chmod +x amplify_config.sh
+- "./ecr_credentials.sh"
 install:
-  - npm install
-
+- npm install
+- npm install -g @aws-amplify/cli
+- "./amplify_config.sh"
 script:
-  - npm test
-  - npm run build
-
+- npm test
+- npm run build
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github-token: $GITHUB_TOKEN
-  local_dir: build
+  provider: s3
+  access_key_id: ${AWS_ACCESS_KEY_ID}
+  secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+  bucket: testapp221307-dev
+  acl: public_read
   on:
-    branch: master
+    repo: duranzavala/react-test-app
+    branch: feature/architecture
