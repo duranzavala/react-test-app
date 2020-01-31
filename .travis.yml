@@ -10,12 +10,11 @@ before_install:
 - unzip awscliv2.zip
 - sudo ./aws/install
 - aws2 ec2 describe-instances --profile amplifyProfile
-- amplify pull --appId d2fuhdsnl72e9r --envName dev
 #- export AWS_PROFILE=amplifyProfile
 install:
 - npm install
 - npm install -g @aws-amplify/cli
-- amplify pull
+- amplify pull --appId d2fuhdsnl72e9r --envName dev
 script:
 - npm test
 - npm run build
