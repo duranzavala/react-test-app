@@ -22,4 +22,4 @@ deploy:
   acl: public_read
   on:
     repo: duranzavala/react-test-app
-    branch: feature/architecture
+    branch: master
