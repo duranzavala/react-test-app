@@ -10,7 +10,7 @@ before_install:
 install:
 - npm install
 - npm install -g @aws-amplify/cli
-#- "./amplify_config.sh"
+- "./amplify_config.sh"
 script:
 - npm test
 - npm run build
