@@ -5,6 +5,7 @@ node_js:
 cache: npm
 before_install:
 - chmod +x ecr_credentials.sh
+- chmod +x amplify_config.sh
 - "./ecr_credentials.sh"
 install:
 - npm install
